@@ -8,7 +8,7 @@
 class StepProvider final : public vr::IServerTrackedDeviceProvider {
 public:
     StepProvider();
-    ~StepProvider() override;
+    ~StepProvider();
 
     vr::EVRInitError Init(vr::IVRDriverContext* pDriverContext) override;
     void Cleanup() override;

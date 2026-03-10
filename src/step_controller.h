@@ -7,7 +7,7 @@
 class StepController final : public vr::ITrackedDeviceServerDriver {
 public:
     StepController(BridgeState& state);
-    ~StepController() override = default;
+    ~StepController() = default;
 
     vr::EVRInitError Activate(uint32_t unObjectId) override;
     void Deactivate() override;

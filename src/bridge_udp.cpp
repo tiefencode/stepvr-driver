@@ -1,6 +1,5 @@
 #include "bridge_udp.h"
 
-#define WIN32_LEAN_AND_MEAN
 #include <winsock2.h>
 #include <ws2tcpip.h>
 #include <cstdint>
@@ -78,8 +77,15 @@ void UdpBridge::run() {
         Packet p{};
         sockaddr_in from{};
         int fromlen = sizeof(from);
-        int received = recvfrom(s, reinterpret_cast<char*>(&p), sizeof(p), 0,
-                                reinterpret_cast<sockaddr*>(&from), &fromlen);
+        int received = recvfrom(
+            s,
+            reinterpret_cast<char*>(&p),
+            sizeof(p),
+            0,
+            reinterpret_cast<sockaddr*>(&from),
+            &fromlen
+        );
+
         if (received == sizeof(Packet)) {
             m_state.joyX.store(p.x);
             m_state.joyY.store(p.y);
