@@ -70,9 +70,10 @@ vr::DriverPose_t StepController::MakePose() const {
 void StepController::UpdateInputs() {
     if (m_objectId == vr::k_unTrackedDeviceIndexInvalid) return;
 
-    const float x = m_state.joyX.load();
-    const float y = m_state.joyY.load();
-    const bool click = m_state.joyClick.load();
+    // debug mode: force a constant forward stick value
+    const float x = 0.0f;
+    const float y = 0.8f;
+    const bool click = false;
 
     vr::VRDriverInput()->UpdateScalarComponent(m_joyX, x, 0.0);
     vr::VRDriverInput()->UpdateScalarComponent(m_joyY, y, 0.0);
