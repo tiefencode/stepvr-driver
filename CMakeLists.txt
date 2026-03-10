@@ -52,6 +52,7 @@ add_custom_command(TARGET driver_stepvr POST_BUILD
   COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_SOURCE_DIR}/driver.vrdrivermanifest ${CMAKE_BINARY_DIR}/driver.vrdrivermanifest
   COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_SOURCE_DIR}/resources/input/stepvr_profile.json ${CMAKE_BINARY_DIR}/resources/input/stepvr_profile.json
   COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_SOURCE_DIR}/resources/input/legacy_binding_stepvr.json ${CMAKE_BINARY_DIR}/resources/input/legacy_binding_stepvr.json
+  COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_SOURCE_DIR}/resources/input/stepvr.svg ${CMAKE_BINARY_DIR}/resources/input/stepvr.svg
   COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_SOURCE_DIR}/resources/localization/localization.json ${CMAKE_BINARY_DIR}/resources/localization/localization.json
   COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_SOURCE_DIR}/resources/settings/default.vrsettings ${CMAKE_BINARY_DIR}/resources/settings/default.vrsettings
 )

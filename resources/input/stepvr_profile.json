@@ -1,14 +1,26 @@
 {
   "jsonid": "input_profile",
   "controller_type": "stepvr",
-  "input_bindingui_mode": "controller_handed",
+  "input_bindingui_mode": "single_device",
   "legacy_binding": "{stepvr}/input/legacy_binding_stepvr.json",
+  "input_bindingui_left": {
+    "image": "{stepvr}/input/stepvr.svg"
+  },
+  "input_bindingui_right": {
+    "image": "{stepvr}/input/stepvr.svg",
+    "transform": "scale(-1,1)"
+  },
   "input_source": {
     "/input/joystick": {
-      "type": "joystick"
+      "type": "joystick",
+      "click": true,
+      "binding_image_point": [100, 220],
+      "order": 1
     },
-    "/input/joystick/click": {
-      "type": "boolean"
+    "/pose/raw": {
+      "type": "pose",
+      "binding_image_point": [100, 90],
+      "order": 0
     }
   }
 }

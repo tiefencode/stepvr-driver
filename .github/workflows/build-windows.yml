@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: windows-2022
 
     steps:
       - name: checkout
@@ -37,14 +37,18 @@ jobs:
         shell: powershell
         run: |
           New-Item -ItemType Directory -Force -Path dist | Out-Null
-          Copy-Item build\driver.vrdrivermanifest dist\driver.vrdrivermanifest
-          Copy-Item build\bin\win64\Release\driver_stepvr.dll dist\driver_stepvr.dll
+          New-Item -ItemType Directory -Force -Path dist\bin\win64 | Out-Null
           New-Item -ItemType Directory -Force -Path dist\resources\input | Out-Null
           New-Item -ItemType Directory -Force -Path dist\resources\localization | Out-Null
           New-Item -ItemType Directory -Force -Path dist\resources\settings | Out-Null
+
+          Copy-Item build\driver.vrdrivermanifest dist\driver.vrdrivermanifest
+          Copy-Item build\bin\win64\Release\driver_stepvr.dll dist\bin\win64\driver_stepvr.dll
+
           Copy-Item resources\input\* dist\resources\input\
           Copy-Item resources\localization\* dist\resources\localization\
           Copy-Item resources\settings\* dist\resources\settings\
+
           Copy-Item scripts\register_driver.bat dist\register_driver.bat
           Copy-Item scripts\unregister_driver.bat dist\unregister_driver.bat
           Copy-Item README.md dist\README.md

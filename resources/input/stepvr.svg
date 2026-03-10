@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 400">
+  <defs>
+    <linearGradient id="footGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7ecb4f"/>
+      <stop offset="1" stop-color="#3d7a24"/>
+    </linearGradient>
+    <linearGradient id="padGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4b5b66"/>
+      <stop offset="1" stop-color="#273038"/>
+    </linearGradient>
+  </defs>
+
+  <!-- silly godzilla-ish dorsal spikes -->
+  <path d="M42 118 L28 138 L44 148 L30 170 L48 180 L36 202 L54 210 L44 234 L62 240"
+        fill="none" stroke="#9fe46c" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- stomp pad / foot -->
+  <path d="M66 84
+           C54 112, 48 162, 52 220
+           C56 286, 76 334, 100 348
+           C124 334, 144 286, 148 220
+           C152 162, 146 112, 134 84
+           C126 66, 74 66, 66 84 Z"
+        fill="url(#footGrad)" stroke="#214716" stroke-width="6"/>
+
+  <!-- toes -->
+  <ellipse cx="66" cy="76" rx="14" ry="18" fill="#7ecb4f" stroke="#214716" stroke-width="5"/>
+  <ellipse cx="88" cy="60" rx="15" ry="20" fill="#7ecb4f" stroke="#214716" stroke-width="5"/>
+  <ellipse cx="112" cy="58" rx="15" ry="20" fill="#7ecb4f" stroke="#214716" stroke-width="5"/>
+  <ellipse cx="134" cy="74" rx="14" ry="18" fill="#7ecb4f" stroke="#214716" stroke-width="5"/>
+
+  <!-- claws -->
+  <path d="M58 58 L66 38 L73 58 Z" fill="#f5f0dc" stroke="#8b846a" stroke-width="3"/>
+  <path d="M81 40 L88 18 L96 41 Z" fill="#f5f0dc" stroke="#8b846a" stroke-width="3"/>
+  <path d="M104 39 L112 16 L120 40 Z" fill="#f5f0dc" stroke="#8b846a" stroke-width="3"/>
+  <path d="M127 56 L134 36 L142 56 Z" fill="#f5f0dc" stroke="#8b846a" stroke-width="3"/>
+
+  <!-- joystick plate -->
+  <circle cx="100" cy="220" r="38" fill="url(#padGrad)" stroke="#14181b" stroke-width="5"/>
+  <circle cx="100" cy="220" r="18" fill="#a9b3ba" stroke="#2f3840" stroke-width="4"/>
+  <rect x="95" y="186" width="10" height="34" rx="5" fill="#c7d0d6" stroke="#2f3840" stroke-width="3"/>
+
+  <!-- tiny city just for fun -->
+  <rect x="72" y="300" width="10" height="24" fill="#26323c"/>
+  <rect x="86" y="292" width="12" height="32" fill="#1f2b34"/>
+  <rect x="102" y="304" width="9" height="20" fill="#26323c"/>
+  <rect x="115" y="296" width="13" height="28" fill="#1f2b34"/>
+
+  <!-- eye -->
+  <circle cx="116" cy="156" r="6" fill="#f3f7d3"/>
+  <circle cx="118" cy="156" r="3" fill="#111"/>
+</svg>
