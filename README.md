@@ -1,12 +1,12 @@
 # stepvr openvr driver template
 
-minimal external openvr driver for a treadmill/step-controller style device.
+minimal external openvr driver for a treadmill/step-controller style device (External HID controller).
 
 the driver exposes a single virtual controller with joystick x/y input. for v1, the live input comes from a tiny udp bridge on `127.0.0.1:54873`.
 
 ## intended data flow
 
-esp32 / existing ble gamepad logic -> windows bridge -> udp -> openvr driver -> steamvr bindings -> game locomotion
+HID controller standard input via BLE -> windows bridge -> udp -> openvr driver -> steamvr bindings -> game locomotion
 
 ## openvr sdk
 
@@ -52,7 +52,7 @@ That script assumes SteamVR is installed at:
 
 If needed, edit the path inside the bat file.
 
-## Test input without ESP32
+## Test input without an external HID controler
 
 Run:
 
