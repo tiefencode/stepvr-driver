@@ -1,36 +1,5 @@
 # stepvr openvr driver template
 
-stepvr-driver/
-├── .github/
-│   └── workflows/
-│       └── build-windows.yml
-├── resources/
-│   ├── input/
-│   │   ├── stepvr_profile.json
-│   │   └── legacy_binding_stepvr.json
-│   ├── localization/
-│   │   └── localization.json
-│   └── settings/
-│       └── default.vrsettings
-├── scripts/
-│   ├── register_driver.bat
-│   └── unregister_driver.bat
-├── src/
-│   ├── bridge_udp.cpp
-│   ├── bridge_udp.h
-│   ├── driver_main.cpp
-│   ├── step_controller.cpp
-│   ├── step_controller.h
-│   ├── step_provider.cpp
-│   └── step_provider.h
-├── tools/
-│   └── test_sender.py
-├── CMakeLists.txt
-├── driver.vrdrivermanifest
-└── README.md
-
-# stepvr openvr driver template
-
 minimal external openvr driver for a treadmill/step-controller style device.
 
 the driver exposes a single virtual controller with joystick x/y input. for v1, the live input comes from a tiny udp bridge on `127.0.0.1:54873`.
