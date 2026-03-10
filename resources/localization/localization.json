@@ -1,0 +1,7 @@
+{
+  "language_tag": "en_US",
+  "stepvr": "stepvr",
+  "stepvr_controller": "stepvr locomotion controller",
+  "/input/joystick": "joystick",
+  "/input/joystick/click": "joystick click"
+}

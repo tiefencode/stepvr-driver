@@ -1,0 +1,9 @@
+{
+  "driver_stepvr": {
+    "listen_ip": "127.0.0.1",
+    "listen_port": 54873,
+    "pose_x": 0.0,
+    "pose_y": 1.0,
+    "pose_z": 0.5
+  }
+}

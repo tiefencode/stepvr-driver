@@ -1,0 +1,12 @@
+{
+  "jsonid": "legacy_binding",
+  "controller_type": "stepvr",
+  "bindings": {
+    "/input/joystick": {
+      "output": "/actions/legacy/in/left_axis0"
+    },
+    "/input/joystick/click": {
+      "output": "/actions/legacy/in/left_axis0_press"
+    }
+  }
+}
