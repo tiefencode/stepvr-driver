@@ -14,7 +14,7 @@ vr::EVRInitError StepController::Activate(uint32_t unObjectId) {
     vr::VRProperties()->SetStringProperty(m_props, vr::Prop_ManufacturerName_String, "stepvr");
     vr::VRProperties()->SetStringProperty(m_props, vr::Prop_ControllerType_String, "stepvr");
     vr::VRProperties()->SetStringProperty(m_props, vr::Prop_InputProfilePath_String, "{stepvr}/input/stepvr_profile.json");
-    vr::VRProperties()->SetInt32Property(m_props, vr::Prop_ControllerRoleHint_Int32, vr::TrackedControllerRole_Treadmill);
+    vr::VRProperties()->SetInt32Property(m_props, vr::Prop_ControllerRoleHint_Int32, vr::TrackedControllerRole_LeftHand);
 
     vr::VRDriverInput()->CreateScalarComponent(
         m_props, "/input/joystick/x", &m_joyX,
