@@ -1,0 +1,14 @@
+{
+  "jsonid": "input_profile",
+  "controller_type": "stepvr",
+  "input_bindingui_mode": "controller_handed",
+  "legacy_binding": "legacy_binding_stepvr.json",
+  "input_source": {
+    "/input/joystick": {
+      "type": "joystick"
+    },
+    "/input/joystick/click": {
+      "type": "boolean"
+    }
+  }
+}
