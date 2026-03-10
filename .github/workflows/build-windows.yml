@@ -38,7 +38,7 @@ jobs:
         run: |
           New-Item -ItemType Directory -Force -Path dist | Out-Null
           Copy-Item build\driver.vrdrivermanifest dist\driver.vrdrivermanifest
-          Copy-Item build\bin\win64\driver_stepvr.dll dist\driver_stepvr.dll
+          Copy-Item build\bin\win64\Release\driver_stepvr.dll dist\driver_stepvr.dll
           New-Item -ItemType Directory -Force -Path dist\resources\input | Out-Null
           New-Item -ItemType Directory -Force -Path dist\resources\localization | Out-Null
           New-Item -ItemType Directory -Force -Path dist\resources\settings | Out-Null
