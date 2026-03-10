@@ -1,74 +1,111 @@
-stepvr openvr driver template
+# stepvr openvr driver template
 
-Minimal external OpenVR driver for a treadmill / step-controller style device.
+stepvr-driver/
+├── .github/
+│   └── workflows/
+│       └── build-windows.yml
+├── resources/
+│   ├── input/
+│   │   ├── stepvr_profile.json
+│   │   └── legacy_binding_stepvr.json
+│   ├── localization/
+│   │   └── localization.json
+│   └── settings/
+│       └── default.vrsettings
+├── scripts/
+│   ├── register_driver.bat
+│   └── unregister_driver.bat
+├── src/
+│   ├── bridge_udp.cpp
+│   ├── bridge_udp.h
+│   ├── driver_main.cpp
+│   ├── step_controller.cpp
+│   ├── step_controller.h
+│   ├── step_provider.cpp
+│   └── step_provider.h
+├── tools/
+│   └── test_sender.py
+├── CMakeLists.txt
+├── driver.vrdrivermanifest
+└── README.md
 
-The driver exposes a single virtual controller with joystick X/Y input. For v1, the live input comes from a tiny UDP bridge on 127.0.0.1:54873.
+# stepvr openvr driver template
 
-Intended data flow
+minimal external openvr driver for a treadmill/step-controller style device.
 
-ESP32 / existing BLE gamepad logic → Windows bridge → UDP → OpenVR driver → SteamVR bindings → game locomotion
+the driver exposes a single virtual controller with joystick x/y input. for v1, the live input comes from a tiny udp bridge on `127.0.0.1:54873`.
 
-OpenVR SDK
+## intended data flow
 
-Clone the official SDK:
+esp32 / existing ble gamepad logic -> windows bridge -> udp -> openvr driver -> steamvr bindings -> game locomotion
 
-https://github.com/ValveSoftware/openvr
+## openvr sdk
 
-Set an environment variable to that checkout before building:
+clone the official sdk:
 
+- repo: `https://github.com/ValveSoftware/openvr`
+
+set an environment variable to that checkout before building:
+
+```bat
 set OPENVR_SDK_ROOT=C:\dev\openvr
+```
 
 Expected files used by CMake:
 
-%OPENVR_SDK_ROOT%\headers\openvr_driver.h
+- %OPENVR_SDK_ROOT%\headers\openvr_driver.h
+- %OPENVR_SDK_ROOT%\lib\win64\openvr_api.lib
 
-%OPENVR_SDK_ROOT%\lib\win64\openvr_api.lib
+## Build locally on Windows
 
-Build locally on Windows
+```bat
 cmake -S . -B build -G "Visual Studio 17 2022" -A x64
 cmake --build build --config Release
+```
 
 Build output ends up under:
 
-build\bin\win64\driver_stepvr.dll
+- `build\bin\win64\driver_stepvr.dll`
+- `build\resources\...`
+- `build\driver.vrdrivermanifest`
 
-build\resources\...
-
-build\driver.vrdrivermanifest
-
-Register in SteamVR
+## Register in SteamVR
 
 Copy or keep the whole built folder together, then run:
 
+```bat
 scripts\register_driver.bat
+```
 
 That script assumes SteamVR is installed at:
 
-C:\Program Files (x86)\Steam\steamapps\common\SteamVR
+`C:\Program Files (x86)\Steam\steamapps\common\SteamVR`
 
 If needed, edit the path inside the bat file.
 
-Test input without ESP32
+## Test input without ESP32
 
 Run:
 
+```bat
 python tools/test_sender.py
+```
 
 This sends a smooth forward/back test signal over UDP so you can see whether the virtual joystick value reaches SteamVR.
 
-Role
+## Role
 
 This template uses TrackedControllerRole_Treadmill as role hint.
 That is meant for treadmill / locomotion-style devices.
 
 If a game ignores it, a pragmatic fallback is to change the role hint to LeftHand and test again.
 
-Notes
+## Notes
 
-The driver deliberately does not talk to BLE directly.
+- The driver deliberately does not talk to BLE directly.
 
-RunFrame() should stay lightweight.
+- `RunFrame()` should stay lightweight.
 
-The UDP listener runs in a worker thread and only updates a shared state.
+- The UDP listener runs in a worker thread and only updates a shared state.
 
-Pose is fixed/minimal for now and only meant to keep the controller alive in SteamVR.
+- Pose is fixed/minimal for now and only meant to keep the controller alive in SteamVR.
