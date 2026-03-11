@@ -1,6 +1,7 @@
 {
   "jsonid": "input_profile",
   "controller_type": "stepvr",
+  "compatibility_mode_controller_type": "vive_controller",
   "input_bindingui_mode": "single_device",
   "legacy_binding": "{stepvr}/input/legacy_binding_stepvr.json",
   "input_bindingui_left": {
